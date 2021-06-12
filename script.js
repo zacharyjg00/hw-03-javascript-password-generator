@@ -19,40 +19,28 @@ function generatePassword() {
   var specialChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~\"\\";
   var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
   var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numberChar = "1234567890";
+  var numericChar = "1234567890";
   var charTypes = "";
 
   while (charTypes.length == 0) {
-    var specialCharBool = prompt("Please enter true or false if you would like you password to contain special characters.");
-    while (specialCharBool.toLowerCase() != "true" && specialCharBool.toLowerCase() != "false") {
-      specialCharBool = prompt("You did not input a valid option. Please enter true or false.");
-    }
-    if (specialCharBool.toLowerCase() == "true") {
+    var specialCharBool = confirm("Please click OK if you would like your password to contain special characters. Click Cancel if you do not.");
+    if (specialCharBool == true) {
       charTypes += specialChar;
     }
-  
-    var lowercaseCharBool = prompt("Please enter true or false if you would like you password to contain lowercase characters.");
-    while (lowercaseCharBool.toLowerCase() != "true" && lowercaseCharBool.toLowerCase() != "false") {
-      lowercaseCharBool = prompt("You did not input a valid option. Please enter true or false.");
-    }
-    if (lowercaseCharBool.toLowerCase() == "true") {
-      charTypes += lowercaseChar;
-    }
-  
-    var uppercaseCharBool = prompt("Please enter true or false if you would like you password to contain uppercase characters.");
-    while (uppercaseCharBool.toLowerCase() != "true" && uppercaseCharBool.toLowerCase() != "false") {
-      uppercaseCharBool = prompt("You did not input a valid option. Please enter true or false.");
-    }
-    if (uppercaseCharBool.toLowerCase() == "true") {
+
+    var uppercaseCharBool = confirm("Please click OK if you would like your password to contain uppercase characters. Click Cancel if you do not.");
+    if (uppercaseCharBool == true) {
       charTypes += uppercaseChar;
     }
-    
-    var numberCharBool = prompt("Please enter true or false if you would like you password to contain number characters.");
-    while (numberCharBool.toLowerCase() != "true" && numberCharBool.toLowerCase() != "false") {
-      numberCharBool = prompt("You did not input a valid option. Please enter true or false.");
+
+    var lowercaseCharBool = confirm("Please click OK if you would like your password to contain lowercase characters. Click Cancel if you do not.");
+    if (lowercaseCharBool == true) {
+      charTypes += lowercaseChar;
     }
-    if (numberCharBool.toLowerCase() == "true") {
-      charTypes += numberChar;
+
+    var numericCharBool = confirm("Please click OK if you would like your password to contain numeric characters. Click Cancel if you do not.");
+    if (numericCharBool == true) {
+      charTypes += numericChar;
     }
 
     if (charTypes.length == 0) {
